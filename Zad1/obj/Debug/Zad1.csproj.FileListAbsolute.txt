@@ -1,0 +1,8 @@
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\bin\Debug\Zad1.exe
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\bin\Debug\Zad1.pdb
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\obj\Debug\Zad1.csprojResolveAssemblyReference.cache
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\obj\Debug\Zad1.Form1.resources
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\obj\Debug\Zad1.Properties.Resources.resources
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\obj\Debug\Zad1.csproj.GenerateResource.Cache
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\obj\Debug\Zad1.exe
+c:\users\adam\documents\visual studio 2013\Projects\Zad1\Zad1\obj\Debug\Zad1.pdb
