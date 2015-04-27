@@ -5,19 +5,32 @@ using System.Text;
 
 namespace Zad1
 {
-    class Computer  : IDive, IRise
+    class Computer  : Zabawka
     {
-        private int Accelertate;
-        private int Dive;
-        private int Rise;
+        private string name;
 
-        public void RiseChangeTo(int change)
+
+
+        public Computer()
         {
-            Rise = change;
+                      // TODO: Complete member initialization
+
         }
-        public void DiveChangeTo(int change)
+
+        public Computer(string name)
         {
-            Dive = change;
+            // TODO: Complete member initialization
+            this.name = name;
         }
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -8,5 +8,6 @@ namespace Zad1
     public interface IRise
     {
         void RiseChangeTo(int change);
+        int getRise();
     }
 }

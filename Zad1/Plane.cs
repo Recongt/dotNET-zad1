@@ -5,11 +5,25 @@ using System.Text;
 
 namespace Zad1
 {
-    class Plane : IAccelerate
+    class Plane :Zabawka, IAccelerate
     {
         private int Accelertate;
-        private int Dive;
-        private int Rise;
+        private Plane Plane1;
+        private string name;
+
+        public Plane(Plane Plane1)
+        {
+            // TODO: Complete member initialization
+            this.Plane1 = Plane1;
+        }
+
+        public Plane(string name)
+        {
+            // TODO: Complete member initialization
+            this.name = name;
+        }
+        
+        
 
 
 
@@ -18,11 +32,15 @@ namespace Zad1
             Accelertate = change;
         }
 
-        public Plane(int nAccelerate, int nDive, int nRise)
+
+
+
+        public int getAccelerate()
         {
-            Accelertate = nAccelerate;
-            Dive = nDive;
-            Rise = nRise;
+            return this.Accelertate;
         }
+
+
+
     }
 }

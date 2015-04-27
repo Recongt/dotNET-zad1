@@ -5,16 +5,42 @@ using System.Text;
 
 namespace Zad1
 {
-    class Car : IAccelerate    
+    class Car :Zabawka,  IAccelerate
     {
-    private int Accelertate;
-    private int Dive;
-    private int Rise;
+        private int Accelerate;
+        private string Nazwa;
 
-    public void AccelerateChangeTo(int change)
-    {
 
-    }
+
+
+
+
+
+
+        public Car(int a)
+        {
+            this.Accelerate = a;
+        }
+
+
+        public Car(string Nazwa)
+        {
+            // TODO: Complete member initialization
+            this.Nazwa = Nazwa;
+        }
+
+        public void AccelerateChangeTo(int change)
+        {
+            this.Accelerate = change;
+
+        }
+        public int getAccelerate()
+        {
+            return this.Accelerate;
+        }
+
+
+
 
     }
 }
