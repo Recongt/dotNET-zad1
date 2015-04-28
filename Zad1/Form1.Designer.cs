@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonNowaZabawka = new System.Windows.Forms.Button();
-            this.buttonZamienParametry = new System.Windows.Forms.Button();
             this.comboBoxListaMozliwychZabawek = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,15 +38,15 @@
             this.numericUpDownDive = new System.Windows.Forms.NumericUpDown();
             this.comboBoxZZabawkami = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxNazwaZabawki = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxActualDive = new System.Windows.Forms.TextBox();
+            this.textBoxActualRise = new System.Windows.Forms.TextBox();
+            this.textBoxActualAccelerate = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxActualAccelerate = new System.Windows.Forms.TextBox();
-            this.textBoxActualRise = new System.Windows.Forms.TextBox();
-            this.textBoxActualDive = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxNazwaZabawki = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAccelerate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRise)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDive)).BeginInit();
@@ -64,16 +63,6 @@
             this.buttonNowaZabawka.Text = "Nowa zabawka";
             this.buttonNowaZabawka.UseVisualStyleBackColor = true;
             this.buttonNowaZabawka.Click += new System.EventHandler(this.buttonNowaZabawka_Click);
-            // 
-            // buttonZamienParametry
-            // 
-            this.buttonZamienParametry.Location = new System.Drawing.Point(174, 131);
-            this.buttonZamienParametry.Name = "buttonZamienParametry";
-            this.buttonZamienParametry.Size = new System.Drawing.Size(96, 23);
-            this.buttonZamienParametry.TabIndex = 1;
-            this.buttonZamienParametry.Text = "Zmien parametry";
-            this.buttonZamienParametry.UseVisualStyleBackColor = true;
-            this.buttonZamienParametry.Click += new System.EventHandler(this.buttonZamienParametry_Click);
             // 
             // comboBoxListaMozliwychZabawek
             // 
@@ -152,6 +141,7 @@
             this.comboBoxZZabawkami.Size = new System.Drawing.Size(225, 21);
             this.comboBoxZZabawkami.TabIndex = 13;
             this.comboBoxZZabawkami.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.comboBoxZZabawkami.SelectedValueChanged += new System.EventHandler(this.comboBoxZZabawkami_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -162,49 +152,40 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.comboBoxZZabawkami);
-            this.groupBox1.Controls.Add(this.buttonZamienParametry);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.numericUpDownDive);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.numericUpDownRise);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.numericUpDownAccelerate);
-            this.groupBox1.Location = new System.Drawing.Point(435, 64);
+            this.groupBox1.Location = new System.Drawing.Point(416, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 257);
+            this.groupBox1.Size = new System.Drawing.Size(289, 205);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stworzone Zabawki";
             // 
-            // groupBox2
+            // textBoxActualDive
             // 
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.textBoxNazwaZabawki);
-            this.groupBox2.Controls.Add(this.comboBoxListaMozliwychZabawek);
-            this.groupBox2.Controls.Add(this.buttonNowaZabawka);
-            this.groupBox2.Location = new System.Drawing.Point(53, 64);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 257);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Twirzenie nowej zabawki";
+            this.textBoxActualDive.Location = new System.Drawing.Point(131, 32);
+            this.textBoxActualDive.Name = "textBoxActualDive";
+            this.textBoxActualDive.Size = new System.Drawing.Size(55, 20);
+            this.textBoxActualDive.TabIndex = 19;
             // 
-            // textBoxNazwaZabawki
+            // textBoxActualRise
             // 
-            this.textBoxNazwaZabawki.Location = new System.Drawing.Point(6, 135);
-            this.textBoxNazwaZabawki.Name = "textBoxNazwaZabawki";
-            this.textBoxNazwaZabawki.Size = new System.Drawing.Size(317, 20);
-            this.textBoxNazwaZabawki.TabIndex = 3;
-            this.textBoxNazwaZabawki.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxActualRise.Location = new System.Drawing.Point(70, 33);
+            this.textBoxActualRise.Name = "textBoxActualRise";
+            this.textBoxActualRise.Size = new System.Drawing.Size(55, 20);
+            this.textBoxActualRise.TabIndex = 18;
             // 
-            // label1
+            // textBoxActualAccelerate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nazwa zabawki";
+            this.textBoxActualAccelerate.Location = new System.Drawing.Point(9, 33);
+            this.textBoxActualAccelerate.Name = "textBoxActualAccelerate";
+            this.textBoxActualAccelerate.Size = new System.Drawing.Size(55, 20);
+            this.textBoxActualAccelerate.TabIndex = 17;
+            this.textBoxActualAccelerate.TextChanged += new System.EventHandler(this.textBoxActualAccelerate_TextChanged);
             // 
             // label5
             // 
@@ -233,32 +214,41 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Dive";
             // 
-            // textBoxActualAccelerate
+            // groupBox2
             // 
-            this.textBoxActualAccelerate.Location = new System.Drawing.Point(9, 33);
-            this.textBoxActualAccelerate.Name = "textBoxActualAccelerate";
-            this.textBoxActualAccelerate.Size = new System.Drawing.Size(55, 20);
-            this.textBoxActualAccelerate.TabIndex = 17;
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.textBoxNazwaZabawki);
+            this.groupBox2.Controls.Add(this.comboBoxListaMozliwychZabawek);
+            this.groupBox2.Controls.Add(this.buttonNowaZabawka);
+            this.groupBox2.Location = new System.Drawing.Point(53, 28);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(344, 197);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tworzenie nowej zabawki";
             // 
-            // textBoxActualRise
+            // label1
             // 
-            this.textBoxActualRise.Location = new System.Drawing.Point(70, 33);
-            this.textBoxActualRise.Name = "textBoxActualRise";
-            this.textBoxActualRise.Size = new System.Drawing.Size(55, 20);
-            this.textBoxActualRise.TabIndex = 18;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Nazwa zabawki";
             // 
-            // textBoxActualDive
+            // textBoxNazwaZabawki
             // 
-            this.textBoxActualDive.Location = new System.Drawing.Point(131, 32);
-            this.textBoxActualDive.Name = "textBoxActualDive";
-            this.textBoxActualDive.Size = new System.Drawing.Size(55, 20);
-            this.textBoxActualDive.TabIndex = 19;
+            this.textBoxNazwaZabawki.Location = new System.Drawing.Point(6, 135);
+            this.textBoxNazwaZabawki.Name = "textBoxNazwaZabawki";
+            this.textBoxNazwaZabawki.Size = new System.Drawing.Size(317, 20);
+            this.textBoxNazwaZabawki.TabIndex = 3;
+            this.textBoxNazwaZabawki.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 422);
+            this.ClientSize = new System.Drawing.Size(742, 237);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -275,9 +265,8 @@
         }
 
         #endregion
-        
+
         private System.Windows.Forms.Button buttonNowaZabawka;
-        private System.Windows.Forms.Button buttonZamienParametry;
         private System.Windows.Forms.ComboBox comboBoxListaMozliwychZabawek;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

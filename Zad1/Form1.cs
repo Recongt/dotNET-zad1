@@ -15,13 +15,12 @@ namespace Zad1
         private int i = 0;
         private TextBox objTextBox;
         private string name = "";
-        private int Rise;
-        private int Dive;
-        private int Accelerate;
         private NumericUpDown objRise;
         private NumericUpDown objAccelerate;
         private NumericUpDown objDive;
         private object selecteditem;
+        private ComboBox cmb;
+        private int selectedToyIndex;
         public Form1()
         {
             InitializeComponent();
@@ -72,9 +71,10 @@ namespace Zad1
                     case "Car":
 
                         Car car = new Car(name);
+                        car.AccelerateChangeTo(0);
                         zab.Add(car);
-                        Console.Out.Write("Added car: " + car.getName());
-                        comboBoxZZabawkami.Items.Insert(i, name);
+                        
+                        comboBoxZZabawkami.Items.Insert(i,(i+1)+") Car "+ name);
                         i++;
 
                         break;
@@ -82,32 +82,32 @@ namespace Zad1
                     case "Computer":
                         Computer computer = new Computer(name);
                         zab.Add(computer);
-                        Console.Out.Write("Added car: " + computer.getName());
-                        comboBoxZZabawkami.Items.Insert(i, name);
+
+                        comboBoxZZabawkami.Items.Insert(i, (i + 1) + ") Computer " + name);
                         i++;
                         break;
 
                     case "Dino":
                         Dino Dino = new Dino(name);
                         zab.Add(Dino);
-                        Console.Out.Write("Added car: " + Dino.getName());
-                        comboBoxZZabawkami.Items.Insert(i, name);
+
+                        comboBoxZZabawkami.Items.Insert(i, (i + 1) + ") Dino " + name);
                         i++;
 
                         break;
                     case "Plane":
                         Plane Plane = new Plane(name);
                         zab.Add(Plane);
-                        Console.Out.Write("Added car: " + Plane.getName());
-                        comboBoxZZabawkami.Items.Insert(i, name);
+
+                        comboBoxZZabawkami.Items.Insert(i, (i + 1) + ") Plane " + name);
                         i++;
 
                         break;
                     case "Submarine":
                         Submarine Submarine = new Submarine(name);
                         zab.Add(Submarine);
-                        Console.Out.Write("Added car: " + Submarine.getName());
-                        comboBoxZZabawkami.Items.Insert(i, name);
+
+                        comboBoxZZabawkami.Items.Insert(i, (i + 1) + ") Submarine " + name);
                         i++;
 
                         break;
@@ -122,16 +122,35 @@ namespace Zad1
             int selectedIndex = comboBoxZZabawkami.SelectedIndex;            
             selecteditem = zab[selectedIndex];
 
-            
+            if (selecteditem is IAccelerate)
+            {
+                selecteditem = (IAccelerate) selecteditem;
+                textBoxActualAccelerate.Text = objAccelerate.Value.ToString();
+            }
+            else if (selecteditem is IDive)
+            {
+                selecteditem = (IDive)selecteditem;
+                textBoxActualDive.Text = objAccelerate.Value.ToString();
+            }
+            else if (selecteditem is IRise)
+            {
+                selecteditem = (IRise)selecteditem;
+                textBoxActualRise.Text = objAccelerate.Value.ToString();
+            }
 
+
+            /*
             if (selecteditem is Car)
             {
                 try
                 {
                     ((Car)selecteditem).AccelerateChangeTo((int)objAccelerate.Value);
                     textBoxActualAccelerate.Text = objAccelerate.Value.ToString();
+                    
+                    
                     textBoxActualDive.Text = "Brak";
                     textBoxActualRise.Text = "Brak";
+
 
                 }
                 catch (NullReferenceException)
@@ -223,7 +242,7 @@ namespace Zad1
             }
 
 
-
+*/
             
 
 
@@ -237,7 +256,35 @@ namespace Zad1
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            selecteditem = sender;
+            cmb = (ComboBox)sender;
+            selectedToyIndex = cmb.SelectedIndex;
+            selecteditem = zab[selectedToyIndex];
+            textBoxActualDive.Text = "Brak";
+            textBoxActualAccelerate.Text = "Brak";
+            textBoxActualRise.Text = "Brak";
+            if (selecteditem is IAccelerate)
+            {
+                var thingVar = (IAccelerate)selecteditem;
+                textBoxActualAccelerate.Text = thingVar.getAccelerate().ToString();
+            }
+
+            if (selecteditem is IDive)
+            {
+                var thingVar = (IDive)selecteditem;
+                textBoxActualDive.Text = thingVar.getDive().ToString();
+
+            }
+
+            if (selecteditem is IRise)
+            {
+                var thingVar = (IRise)selecteditem;
+                textBoxActualRise.Text = thingVar.getRise().ToString();
+            } 
+         
+            
+
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -249,19 +296,86 @@ namespace Zad1
 
         private void numericUpDownRise_ValueChanged(object sender, EventArgs e)
         {
-            objRise = (NumericUpDown)sender;
+            objRise = (NumericUpDown)sender;                      
+          
+            int value = 0;
+            if (objRise.Text.Length != 0)
+            {
+                value = Int32.Parse(objRise.Text);
+            }
+
+            if (selecteditem != null)
+            {
+                selecteditem= zab[selectedToyIndex];
+
+                if (selecteditem is IRise)
+                {
+                    var thingVar = (IRise)selecteditem;
+                    thingVar.RiseChangeTo(value);
+                    textBoxActualRise.Text  = value.ToString();
+                }
+
+            }
 
         }
+
+        
 
         private void numericUpDownAccelerate_ValueChanged(object sender, EventArgs e)
         {
             objAccelerate = (NumericUpDown)sender;
+          
+            int value = 0;
+            if (objAccelerate.Text.Length != 0)
+            {
+                value = Int32.Parse(objAccelerate.Text);
+            }
+
+            if (selecteditem != null)
+            {
+                selecteditem= zab[selectedToyIndex];
+
+                if (selecteditem is IAccelerate)
+                {
+                    var thingVar = (IAccelerate)selecteditem;
+                    thingVar.AccelerateChangeTo(value);
+                    textBoxActualAccelerate.Text = value.ToString();
+                }
+
+            }
 
         }
 
         private void numericUpDownDive_ValueChanged(object sender, EventArgs e)
         {
             objDive = (NumericUpDown)sender;
+            int value = 0;
+            if (objDive.Text.Length != 0)
+            {
+                value = Int32.Parse(objDive.Text);
+            }
+
+            if (selecteditem != null)
+            {
+                selecteditem = zab[selectedToyIndex];
+
+                if (selecteditem is IDive)
+                {
+                    var thingVar = (IDive)selecteditem;
+                    thingVar.DiveChangeTo(value);
+                    textBoxActualDive.Text = value.ToString();
+                }
+
+            }
+        }
+
+        private void textBoxActualAccelerate_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void comboBoxZZabawkami_SelectedValueChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }
